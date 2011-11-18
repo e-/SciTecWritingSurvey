@@ -1,0 +1,88 @@
+{% extends "layout.html" %}
+
+{% block title %}
+	과학 기술과 글쓰기 실험에 참여해 주셔서 감사합니다. 
+{% end %}
+{% block header %}
+{% end %}
+{% block layout %}
+	<header id="global">
+	<h1>표지판 인식 실험</h1>
+	<p>안녕하세요. 저희는 <a href="http://liberal.math.snu.ac.kr/information/sub02_01.htm?data=offset%3D12%26letter_no%3D17%26pagecnt%3D0%26search%3Dtitle%26searchstring%3D%B0%FA%C7%D0&boardIndex=1&category_s=" target="_blank">서울대학교 기초교육원</a>의 &lt;010.067, 과학 기술과 글쓰기&gt; 강좌를 수강하고 있는 학생들입니다. 교내 표지판에 관련된 연구를 진행하고 있는데 표지판 인식에 대한 자료가 필요하여 실험을 진행하고 있습니다. 바쁘시더라도 잠깐 시간 내시어 참여해 주시면 감사하겠습니다. 실험은 3분 정도 소요됩니다. 본 실험 결과는 어떤 다른 목적으로도 사용하지 않습니다. 감사합니다.</p>
+	</header>
+
+	<div id="agree">
+		<a href="#" class="button action" data-trigger="phase0">실험 참여하기</a>
+	</div>
+
+	<form action="/new" method="post" id="survey-paper">
+
+	<section class="survey-wrapper clearfix" id="opener">
+		<h2>주어진 표지판과 질문을 보고 알맞은 답을 최대한 빠르게 골라주세요.</h2>
+		<a href="#" class="button action" data-trigger="phase1">첫번째 실험 시작하기</a>
+	</section>
+
+	<section class="survey-wrapper clearfix" id="survey1">
+		<figure class="sign-wrapper">
+			<img src="{{static_url("images/before.png")}}" class="sign">
+		</figure>
+		<div class="survey">
+			<h2>
+				<span class="highlight">사회과학대학</span>을 찾아가려면 어떤 방향으로 가야합니까?
+			</h2>
+			<ul class="answer">
+				<li>왼쪽 ←</li>
+				<li>앞쪽 ↑</li>
+				<li>오른쪽 →</li>
+			</ul>
+	<!--		<ul>
+				<li>
+					다음중 앞쪽에 있는 건물은 무엇일까요?
+				</li>
+				<li>
+					다음중 왼쪽에 있는 건물은 무엇일까요?
+				</li>
+				<li>
+					공과대학은 어디에 있을까요?
+				</li>
+				<li>
+					체육관은 어디에 있을까요?
+				</li>
+			</ul> -->
+		</div>
+	</section>
+
+<!--	<section class="survey-wrapper clearfix" id="survey2">
+		<figure class="sign-wrapper">
+			<img src="{{static_url("images/after.png")}}" class="sign">
+		</figure>
+		<div class="survey">
+			<ul>
+			</ul>
+		</div>
+	</section>
+
+	<section class="survey-wrapper clearfix" id="servey3">
+		<ul>
+			<li>
+				두 표지판 중 어떤 표지판이 더 마음에 듭니까?
+			</li>
+			<li>
+				두 표지판 중 어떤 표지판이 인식하기 쉽다고 생각하십니까?
+			</li>
+			<li>
+				어떤 표지판에서 더 많은 정보를 얻을 수 있다고 생각합니까?
+			</li>
+			<li>
+				두 표지판에 점수를 매긴다면?
+			</li>
+		</ul>
+	</section>
+-->
+	</form>	
+{% end %}
+{% block footer %}
+{% end %}
+{% block javascripts %}
+	<script type="text/javascript" src="{{static_url('javascripts/index.js')}}"></script>
+{% end %}
