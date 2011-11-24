@@ -8,77 +8,212 @@
 {% block layout %}
 	<header id="global">
 	<h1>표지판 인식 실험</h1>
-	<p>안녕하세요. 저희는 <a href="http://liberal.math.snu.ac.kr/information/sub02_01.htm?data=offset%3D12%26letter_no%3D17%26pagecnt%3D0%26search%3Dtitle%26searchstring%3D%B0%FA%C7%D0&boardIndex=1&category_s=" target="_blank">서울대학교 기초교육원</a>의 &lt;010.067, 과학 기술과 글쓰기&gt; 강좌를 수강하고 있는 학생들입니다. 교내 표지판에 관련된 연구를 진행하고 있는데 표지판 인식에 대한 자료가 필요하여 실험을 진행하고 있습니다. 바쁘시더라도 잠깐 시간 내시어 참여해 주시면 감사하겠습니다. 실험은 3분 정도 소요됩니다. 본 실험 결과는 어떤 다른 목적으로도 사용하지 않습니다. 감사합니다.</p>
+	<p>안녕하세요. 저희는 <a href="http://liberal.math.snu.ac.kr/information/sub02_01.htm?data=offset%3D12%26letter_no%3D17%26pagecnt%3D0%26search%3Dtitle%26searchstring%3D%B0%FA%C7%D0&boardIndex=1&category_s=" target="_blank">서울대학교 기초교육원</a>의 &lt;010.067, 과학 기술과 글쓰기&gt; 강좌를 수강하고 있는 학생들입니다. 교내 표지판에 관련된 연구를 진행하고 있는데 표지판 인식에 대한 자료가 필요하여 실험을 진행하고 있습니다. 바쁘시더라도 잠깐 시간 내시어 참여해 주시면 감사하겠습니다. 실험은 3분 정도 소요됩니다. 본 실험 결과는 어떤 다른 목적으로도 사용하지 않습니다. 감사합니다. <strong>실험 도중에는 뒤로가기 키나 새로고침 키를 누르지 않도록 조심해 주세요!</strong></p>
 	</header>
 
 	<div id="agree">
-		<a href="#" class="button action" data-trigger="phase0">실험 참여하기</a>
+		<a href="#" class="button action" data-trigger="phase1">실험 참여하기</a>
 	</div>
 
 	<form action="/new" method="post" id="survey-paper">
-
-	<section class="survey-wrapper clearfix" id="opener">
-		<h2>주어진 표지판과 질문을 보고 알맞은 답을 최대한 빠르게 골라주세요.</h2>
-		<a href="#" class="button action" data-trigger="phase1">첫번째 실험 시작하기</a>
-	</section>
-
 	<section class="survey-wrapper clearfix" id="survey1">
-		<figure class="sign-wrapper">
-			<img src="{{static_url("images/before.png")}}" class="sign">
-		</figure>
-		<div class="survey">
-			<h2>
-				<span class="highlight">사회과학대학</span>을 찾아가려면 어떤 방향으로 가야합니까?
-			</h2>
+		<div class="fullwidth-survey">
+			<h2>캠퍼스 내에서 길을 찾을 때 어떤 정보를 주로 이용하십니까? </h2>
+			<h3>(만약 경험이 없으시다면 주로 이용할 것 같은 정보를 선택해 주세요)</h3>
 			<ul class="answer">
-				<li>왼쪽 ←</li>
-				<li>앞쪽 ↑</li>
-				<li>오른쪽 →</li>
-			</ul>
-	<!--		<ul>
-				<li>
-					다음중 앞쪽에 있는 건물은 무엇일까요?
-				</li>
-				<li>
-					다음중 왼쪽에 있는 건물은 무엇일까요?
-				</li>
-				<li>
-					공과대학은 어디에 있을까요?
-				</li>
-				<li>
-					체육관은 어디에 있을까요?
-				</li>
-			</ul> -->
-		</div>
-	</section>
-
-<!--	<section class="survey-wrapper clearfix" id="survey2">
-		<figure class="sign-wrapper">
-			<img src="{{static_url("images/after.png")}}" class="sign">
-		</figure>
-		<div class="survey">
-			<ul>
+				<li class="answer-pick" data-trigger="pick11">주변 사람들에게 물어보기</li>
+				<li class="answer-pick" data-trigger="pick12">스마트폰 지도</li>
+				<li class="answer-pick" data-trigger="pick13">표지판</li>
+				<li class="answer-pick" data-trigger="pick14">기타</li>
 			</ul>
 		</div>
 	</section>
-
-	<section class="survey-wrapper clearfix" id="servey3">
-		<ul>
-			<li>
-				두 표지판 중 어떤 표지판이 더 마음에 듭니까?
-			</li>
-			<li>
-				두 표지판 중 어떤 표지판이 인식하기 쉽다고 생각하십니까?
-			</li>
-			<li>
-				어떤 표지판에서 더 많은 정보를 얻을 수 있다고 생각합니까?
-			</li>
-			<li>
-				두 표지판에 점수를 매긴다면?
-			</li>
-		</ul>
+	<section class="survey-wrapper opener clearfix" id="opener">
+		<h2>주어진 표지판과 질문을 보고 알맞은 답을 최대한 빠르게 골라주세요.</h2>
+		<a href="#" class="button action" data-trigger="phase3">다음 실험 시작하기</a>
 	</section>
--->
+	<section class="survey-wrapper opener clearfix" id="opener2">
+		<h2>이번에는 다른 표지판입니다. <br/> 주어진 표지판과 질문을 보고 알맞은 답을 최대한 빠르게 골라주세요.</h2>
+		<a href="#" class="button action" data-trigger="phase4">다음 실험 시작하기</a>
+	</section>
+
+	<section class="survey-wrapper opener clearfix" id="opener3">
+		<h2>다음은 앞의 두 표지판에 대한 설문조사입니다.</h2>
+		<a href="#" class="button action" data-trigger="phase5">시작하기</a>
+	</section>
+
+	<section class="survey-wrapper clearfix" id="exp1">
+		<div class="figure-survey">
+			<figure class="figure-wrapper">
+				<img src="{{static_url("images/before.png")}}" class="sign">
+			</figure>
+			<div class="survey" id="exp11">
+				<h2>
+					<span class="highlight" id="exp11-key"></span> 은(는) 어떤 방향에 있습니까? 
+				</h2>
+				<ul class="answer">
+					<li class="answer-pick" data-trigger="pick111">왼쪽 ←</li>
+					<li class="answer-pick" data-trigger="pick112">앞쪽 ↑</li>
+					<li class="answer-pick" data-trigger="pick113">오른쪽 →</li>
+				</ul>
+			</div>
+			<div class="survey" id="exp12">
+				<h2>
+					<span class="highlight" id="exp12-key"></span> 은(는) 어떤 방향에 있습니까?  
+				</h2>
+				<ul class="answer">
+					<li class="answer-pick" data-trigger="pick121">왼쪽 ←</li>
+					<li class="answer-pick" data-trigger="pick122">앞쪽 ↑</li>
+					<li class="answer-pick" data-trigger="pick123">오른쪽 →</li>
+				</ul>
+			</div>
+			<div class="survey" id="exp13">
+				<h2>
+					다음 중 앞쪽에 있는 건물은 무엇일까요?
+				</h2>
+				<ul class="answer small-pl">
+					<li id="pick131" class="answer-pick" data-trigger="pick131"></li>
+					<li id="pick132" class="answer-pick" data-trigger="pick132"></li>
+					<li id="pick133" class="answer-pick" data-trigger="pick133"></li>
+				</ul>
+			</div>
+			<div class="survey" id="exp14">
+				<h2>
+					다음 중 왼쪽에 있는 건물은 무엇일까요?
+				</h2>
+				<ul class="answer small-pl">
+					<li id="pick141" class="answer-pick" data-trigger="pick141"></li>
+					<li id="pick142" class="answer-pick" data-trigger="pick142"></li>
+					<li id="pick143" class="answer-pick" data-trigger="pick143"></li>
+				</ul>
+			</div>
+			<div class="survey" id="exp15">
+				<h2>
+					<span class="highlight" id="exp15-key"></span> 구역에는 어떤 건물이 있습니까?
+				</h2>
+				<ul class="answer small-pl">
+					<li id="pick151" class="answer-pick" data-trigger="pick151"></li>
+					<li id="pick152" class="answer-pick" data-trigger="pick152"></li>
+					<li id="pick153" class="answer-pick" data-trigger="pick153"></li>
+				</ul>
+			</div>
+		</div>
+	</section>
+
+	<section class="survey-wrapper clearfix" id="exp2">
+		<div class="figure-survey">
+			<figure class="figure-wrapper">
+				<img src="{{static_url("images/after.png")}}" class="sign">
+			</figure>
+			<div class="survey" id="exp21">
+				<h2>
+					<span class="highlight" id="exp21-key"></span> 은(는) 어떤 방향에 있습니까? 
+				</h2>
+				<ul class="answer">
+					<li class="answer-pick" data-trigger="pick211">왼쪽 ←</li>
+					<li class="answer-pick" data-trigger="pick212">앞쪽 ↑</li>
+					<li class="answer-pick" data-trigger="pick213">오른쪽 →</li>
+				</ul>
+			</div>
+			<div class="survey" id="exp22">
+				<h2>
+					<span class="highlight" id="exp22-key"></span> 은(는) 어떤 방향에 있습니까?  
+				</h2>
+				<ul class="answer">
+					<li class="answer-pick" data-trigger="pick221">왼쪽 ←</li>
+					<li class="answer-pick" data-trigger="pick222">앞쪽 ↑</li>
+					<li class="answer-pick" data-trigger="pick223">오른쪽 →</li>
+				</ul>
+			</div>
+			<div class="survey" id="exp23">
+				<h2>
+					다음 중 앞쪽에 있는 건물은 무엇일까요?
+				</h2>
+				<ul class="answer small-pl">
+					<li id="pick231" class="answer-pick" data-trigger="pick231"></li>
+					<li id="pick232" class="answer-pick" data-trigger="pick232"></li>
+					<li id="pick233" class="answer-pick" data-trigger="pick233"></li>
+				</ul>
+			</div>
+			<div class="survey" id="exp24">
+				<h2>
+					다음 중 왼쪽에 있는 건물은 무엇일까요?
+				</h2>
+				<ul class="answer small-pl">
+					<li id="pick241" class="answer-pick" data-trigger="pick241"></li>
+					<li id="pick242" class="answer-pick" data-trigger="pick242"></li>
+					<li id="pick243" class="answer-pick" data-trigger="pick243"></li>
+				</ul>
+			</div>
+			<div class="survey" id="exp25">
+				<h2>
+					<span class="highlight" id="exp25-key"></span> 구역에는 어떤 건물이 있습니까?
+				</h2>
+				<ul class="answer small-pl">
+					<li id="pick251" class="answer-pick" data-trigger="pick251"></li>
+					<li id="pick252" class="answer-pick" data-trigger="pick252"></li>
+					<li id="pick253" class="answer-pick" data-trigger="pick253"></li>
+				</ul>
+			</div>
+		</div>
+	</section>
+	<section class="survey-wrapper clearfix" id="exp3">
+		<div class="two-figure-survey">
+			<figure class="figure-wrapper">
+				<img src="{{static_url("images/before.png")}}" class="sign"> <br />
+				표지판 1
+			</figure>
+			<figure class="figure-wrapper">
+				<img src="{{static_url("images/after.png")}}" class="sign"> <br />
+				표지판 2 
+			</figure>
+			<div class="survey" id="exp31">
+				<h2>
+					옆의 두 표지판 중 어떤 표지판이 더 마음에 듭니까? 
+				</h2>
+				<ul class="answer">
+					<li class="answer-pick" data-trigger="pick311">표지판 1</li>
+					<li class="answer-pick" data-trigger="pick312">표지판 2</li>
+				</ul>
+			</div>
+			<div class="survey" id="exp32">
+				<h2>
+					앞에서 그 표지판을 선택하신 이유는 무엇입니까?
+				</h2>
+				<ul class="answer large-pl">
+					<li class="answer-pick" data-trigger="pick321">디자인이 더 마음에 들어서</li>
+					<li class="answer-pick" data-trigger="pick322">인식하기 더 쉬워서</li>
+					<li class="answer-pick" data-trigger="pick323">정보를 더 많이 담고있어서</li>
+					<li class="answer-pick" data-trigger="pick324">기타<br />
+						<textarea id="pick32-etc" class="etc" placeholder="이유를 적어주세요"></textarea>
+						<div style="text-align:right;font-size:0.7em;font-family:'Malgun Gothic';"><button class="answer-pick" data-trigger="pick325">다음으로</button></div>
+					</li>
+				</ul>
+
+			</div>
+			<div class="survey" id="exp33">
+				<h2>
+					저희는 &lt;표지판 1&gt;을 &lt;표지판 2&gt;처럼 개선했습니다. 개선한 점 중에 어떤 점이 가장 마음에 드시나요?
+				</h2>
+				<ul class="answer large-pl" style="font-size : 0.9em;">
+					<li class="answer-pick" data-trigger="pick331">내용을 나타내는 글꼴을 바꾼 점</li>
+					<li class="answer-pick" data-trigger="pick332">현재 위치와 구역색을 표시한 점</li>
+					<li class="answer-pick" data-trigger="pick333">내용을 화살표 기준으로 정렬한 점</li>
+					<li class="answer-pick" data-trigger="pick334">구역 색과 구역 알파벳을 묶어 표시한 점</li>
+					<li class="answer-pick" data-trigger="pick335">동 번호 순으로 정렬한 점</li>
+					<li class="answer-pick" data-trigger="pick336">이전 표지판이 더 낫다.</li>
+				</ul>
+
+			</div>
+			<div class="survey" id="exp34">
+				<h2>각 표지판에 점수를 매겨 주세요</h2>
+				<div class="answer large-pl">
+					표지판 1 : 
+					표지판 2 : 
+				</div>
+			</div>
+		</div>
+	</section>
 	</form>	
 {% end %}
 {% block footer %}
