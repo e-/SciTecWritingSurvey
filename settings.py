@@ -17,6 +17,6 @@ settings = {}
 
 settings["static_path"] = STATIC_ROOT
 settings["template_path"] = TEMPLATES_ROOT
-settings["xsrf_cookies"] = True
+settings["xsrf_cookies"] = False
 settings["cookie_secret"] = "CW7Nsff2RQWDC7dvMjVbZa67hONdK0VbqTiDHw0VmaE7dNfbSiBFwIhMnUdve0VX"
 

@@ -89,6 +89,26 @@ function phase_template(close, open){
 	};
 }
 
+stringfy = JSON.stringify || function (obj) {
+    var t = typeof (obj);
+    if (t != "object" || obj === null) {
+        // simple data type
+        if (t == "string") obj = '"'+obj+'"';
+        return String(obj);
+    }
+    else {
+        // recurse array or object
+        var n, v, json = [], arr = (obj && obj.constructor == Array);
+        for (n in obj) {
+            v = obj[n]; t = typeof(v);
+            if (t == "string") v = '"'+v+'"';
+            else if (t == "object" && v !== null) v = JSON.stringify(v);
+            json.push((arr ? "" : '"' + n + '":') + String(v));
+        }
+        return (arr ? "[" : "{") + String(json) + (arr ? "]" : "}");
+    }
+};
+
 var phases = {
 	phase1 : function(){
 		$("#agree").fadeOut();
@@ -123,7 +143,23 @@ var phases = {
 	},
 	after31 : phase_template("#exp31", "#exp3, #exp32"),
 	after32 : phase_template("#exp32", "#exp3, #exp33"),
-	after33 : phase_template("#exp33", "#exp3, #exp34")
+	after33 : phase_template("#exp33", "#exp3, #exp34"),
+	after34 : function(){
+		phase_template("#exp34, #exp3", "#finish")();
+		$.ajax({
+			url : "/new",
+			type : "post",
+			dataType : "text",
+			data : "result="+stringfy(answer_sheet),
+			success : function(text){
+			},
+			error : function(e){
+			},
+			complete : function(){
+				$("#send").html("전송 완료!");
+			}
+		});
+	}
 };
 
 function pick_template(pn, answer, callback){
@@ -133,7 +169,16 @@ function pick_template(pn, answer, callback){
 		callback();
 	};
 }
-        
+    
+function score_pick_template(pn, answer, prefix){
+	return function(){
+		if(answer_sheet[pn])
+			$(prefix+answer_sheet[pn]).removeClass("selected");
+
+		answer_sheet[pn] = answer;
+		$(prefix+answer).addClass("selected");
+	}
+}
 
 var pick={
  	 pick11 : pick_template(1, 1, phases.phase2)
@@ -190,7 +235,7 @@ var pick={
 	,pick324 : function(){
 		$("#pick32-etc").focus();
 	}
-	,pick325 : phase_template(32, $("#pick32-etc").val(), phases.after32)
+	,pick325 : pick_template(32, $("#pick32-etc").val(), phases.after32)
 
 	,pick331 : pick_template(33, 1, phases.after33)
 	,pick332 : pick_template(33, 2, phases.after33)
@@ -199,6 +244,27 @@ var pick={
 	,pick335 : pick_template(33, 5, phases.after33)
 	,pick336 : pick_template(33, 6, phases.after33)
 
+	,pick341 : score_pick_template(34, 1, "#pick34")
+	,pick342 : score_pick_template(34, 2, "#pick34")
+	,pick343 : score_pick_template(34, 3, "#pick34")
+	,pick344 : score_pick_template(34, 4, "#pick34")
+	,pick345 : score_pick_template(34, 5, "#pick34")
+	,pick346 : score_pick_template(34, 6, "#pick34")
+	,pick347 : score_pick_template(34, 7, "#pick34")
+	,pick348 : score_pick_template(34, 8, "#pick34")
+	,pick349 : score_pick_template(34, 9, "#pick34")
+
+	,pick351 : score_pick_template(35, 1, "#pick35")
+	,pick352 : score_pick_template(35, 2, "#pick35")
+	,pick353 : score_pick_template(35, 3, "#pick35")
+	,pick354 : score_pick_template(35, 4, "#pick35")
+	,pick355 : score_pick_template(35, 5, "#pick35")
+	,pick356 : score_pick_template(35, 6, "#pick35")
+	,pick357 : score_pick_template(35, 7, "#pick35")
+	,pick358 : score_pick_template(35, 8, "#pick35")
+	,pick359 : score_pick_template(35, 9, "#pick35")
+
+	,finish : pick_template(99, 99, phases.after34)
 };
 
 $(function(){
@@ -340,7 +406,8 @@ $(function(){
 	$("#pick252").html(exp25_option[1].name);
 	$("#pick253").html(exp25_option[2].name);
 
-
+	answer_sheet[34] = 5;
+	answer_sheet[35] = 5;
 
 	$(".action").click(function(){
 		phases[$(this).attr("data-trigger")]();
@@ -352,6 +419,5 @@ $(function(){
 		return false;
 	});
 
-	$("#global, #agree, section").hide();
-	phases.after33();
+//	$("#global, #agree, section").hide();
 });

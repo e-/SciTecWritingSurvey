@@ -4,6 +4,8 @@ import tornado.ioloop
 import tornado.httpserver
 import tornado.web
 
+import pymongo
+
 from tornado.options import options
 
 from routes import routes
@@ -12,7 +14,7 @@ from settings import settings
 class Application(tornado.web.Application):
 	def __init__(self):
 		tornado.web.Application.__init__(self, routes, **settings)
-		
+		self.db = pymongo.Connection()		
 
 def main():
 	tornado.options.parse_command_line()
